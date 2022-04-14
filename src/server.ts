@@ -9,6 +9,10 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
+app.get( "/", ( req, res ) => {
+    res.send( "Hello world!" );
+} );
+
 app.get('/student', function (request: Request, response: Response) {
     prismaClient.student.findMany().then(
         r => response.json(r)
@@ -229,4 +233,6 @@ app.delete('/user', function (request: Request, response: Response) {
 })
 
 
-app.listen(PORT)
+app.listen(PORT, () => {
+    console.log("Loading...")
+})

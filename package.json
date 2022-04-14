@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "dev": "tsnd --respawn --transpile-only src/server.ts",
-    "start": "tsnd src/server.ts"
+    "start": "ts-node src/server.ts"
   },
   "keywords": [],
   "author": "Key Team",
