@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  email      String   @unique @db.NVarChar(100)
+  password   String   @db.NVarChar(100)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Student    Student?
+  Teacher    Teacher?
+
+  @@map("users")
+}
+
+model Student {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.NVarChar(100)
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  courses    Course[]
+
+  @@map("students")
+}
+
+model Teacher {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.NVarChar(100)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String   @unique
+  courses    Course[]
+
+  @@map("teachers")
+}
+
+model Course {
+  id          Int       @id @default(autoincrement())
+  title       String    @db.NVarChar(100)
+  description String?   @db.NVarChar(150)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  Student     Student[]
+  Teacher     Teacher[]
+
+  @@map("courses")
+}
