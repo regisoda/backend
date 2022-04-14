@@ -4,9 +4,7 @@
   "description": "REST API USING PRISMA",
   "main": "server.ts",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "start": "node src/server.js"
+    "dev": "tsnd --respawn --transpile-only src/server.ts"
   },
   "keywords": [],
   "author": "Key Team",
