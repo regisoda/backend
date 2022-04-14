@@ -4,12 +4,15 @@
   "description": "REST API USING PRISMA",
   "main": "server.ts",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only src/server.ts"
+    "dev": "tsnd --respawn --transpile-only src/server.ts",
+    "start": "node src/server.ts",
+    "build": "npm -s run clean && npm -s run generate && tsc"
   },
   "keywords": [],
   "author": "Key Team",
   "license": "MIT",
   "devDependencies": {
+    "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.23",
