@@ -3,7 +3,7 @@ import cors from "cors"
 import express, { Request, Response } from "express"
 import { prismaClient } from "./middlewares/connection"
 
-const PORT = process.env.PORT || 3000
+const PORT = "https://keyteambackend.herokuapp.com" || 3000
 
 const app = express()
 app.use(bodyParser.json())
