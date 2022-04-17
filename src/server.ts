@@ -45,9 +45,12 @@ app.get('/user', function (request: Request, response: Response) {
     prismaClient.user.findMany().then(
         r => response.json(r)
     ).catch(
-        r => response.status(501).json({
-            error: r
-        })
+        r => {
+            console.log(r)
+            response.status(501).json({
+                error: r
+            })
+        }
     )
 })
 
