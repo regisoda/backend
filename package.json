@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "Key Team",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",

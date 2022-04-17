@@ -3,8 +3,6 @@ import cors from "cors"
 import express, { Request, Response } from "express"
 import { prismaClient } from "./middlewares/connection"
 
-const PORT = process.env.PORT || 3000
-
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
@@ -233,6 +231,7 @@ app.delete('/user', function (request: Request, response: Response) {
 })
 
 
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-    console.log("Loading...")
+    console.log("🚀 Server ready...")
 })
