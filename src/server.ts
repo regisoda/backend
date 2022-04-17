@@ -7,9 +7,9 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+app.get("/", (req, res) => {
+    res.send("Hello world!");
+});
 
 app.get('/student', function (request: Request, response: Response) {
     prismaClient.student.findMany().then(
@@ -45,12 +45,7 @@ app.get('/user', function (request: Request, response: Response) {
     prismaClient.user.findMany().then(
         r => response.json(r)
     ).catch(
-        r => {
-            console.log(r)
-            response.status(501).json({
-                error: r
-            })
-        }
+        r => response.status(501).json({ error: r })
     )
 })
 
